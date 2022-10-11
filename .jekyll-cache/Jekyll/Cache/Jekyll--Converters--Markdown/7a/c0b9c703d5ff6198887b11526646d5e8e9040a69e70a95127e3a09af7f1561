@@ -1,0 +1,122 @@
+I"f<p>Git is free and open source software for distributed version control: tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development.</p>
+
+<style>
+:root {
+    --accent: #000e5e;
+    --this_accent: #ede0ff;
+    --code_accent: #a95eff;
+}
+
+
+#progressBar {
+    top: 0%;
+    background: linear-gradient(to right, #9e72e4, #56099e);
+}
+</style>
+
+<h2 id="commanding-git">Commanding Git</h2>
+
+<h3 id="0-git-config">0. git config</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git config –global user.name “[name]”</code></p>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git config –global user.email “[email address]”</code></p>
+
+<p>This command sets the author name and email address respectively to be used with your commits.</p>
+
+<h3 id="1-git-init">1. git init</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git init [repository name]</code></p>
+
+<p>This command is used to start a new repository.</p>
+
+<h3 id="2-git-clone">2. git clone</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git clone [url]</code></p>
+
+<p>This command is used to obtain a repository from an existing URL.</p>
+
+<h3 id="3-git-add">3. git add</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git add [file]</code></p>
+
+<p>This command adds a file to the staging area.</p>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git add *</code></p>
+
+<p>This command adds one or more to the staging area.</p>
+
+<h3 id="4-git-commit">4. git commit</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git commit -m “[ Type in the commit message]”</code></p>
+
+<p>This command records or snapshots the file permanently in the version history.</p>
+
+<h3 id="5-git-diff">5. git diff</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git diff</code></p>
+
+<p>This command shows the file differences which are not yet staged.</p>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git diff –staged</code></p>
+
+<p>This command shows the differences between the files in the staging area and the latest version present.</p>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git diff [first branch] [second branch]</code></p>
+
+<p>This command shows the differences between the two branches mentioned.</p>
+
+<h3 id="6-git-reset">6. git reset</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git reset [file]</code></p>
+
+<p>This command unstages the file, but it preserves the file contents.</p>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git reset –hard [commit]</code></p>
+
+<p>This command discards all history and goes back to the specified commit.</p>
+
+<h3 id="7-git-status">7. git status</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git status</code></p>
+
+<p>This command lists all the files that have to be committed.</p>
+
+<h3 id="8-git-rm">8. git rm</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git rm [file]</code></p>
+
+<p>This command deletes the file from your working directory and stages the deletion.</p>
+
+<h3 id="9-git-log">9. git log</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git log</code></p>
+
+<p>This command is used to list the version history for the current branch.</p>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git log –follow[file]</code></p>
+
+<p>This command lists version history for a file, including the renaming of files also.</p>
+
+<h3 id="10-git-show">10. git show</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git show [commit]</code></p>
+
+<p>This command shows the metadata and content changes of the specified commit.</p>
+
+<h3 id="11-git-tag">11. git tag</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git tag [commitID]</code></p>
+
+<p>This command is used to give tags to the specified commit.</p>
+
+<h3 id="12-git-branch">12. git branch</h3>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git branch</code></p>
+
+<p>This command lists all the local branches in the current repository.</p>
+
+<p><strong>Usage</strong>: <code class="language-plaintext highlighter-rouge">git branch [branch name]</code></p>
+
+<p>This command creates a new branch.</p>
+:ET
