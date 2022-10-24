@@ -1,0 +1,111 @@
+I"†+<p>Firebase is a set of hosting services for any type of application. It offers NoSQL and real-time hosting of databases, content, social authentication, and notifications, or services, such as a real-time communication server.</p>
+
+<style>
+:root {
+    --accent: #e3e31f;
+    --this_accent: #feffe0;
+    --code_accent: #e6ea73;
+}
+
+#progressBar {
+    top: 0%;
+    background: linear-gradient(to right, #e6ea73, #a4aa00);
+}
+</style>
+
+<h1 id="content">Content</h1>
+
+<ol>
+  <li><strong><a href="#1-get-started">Get Started</a></strong></li>
+  <li><strong><a href="#2-sign-in">Sign In</a></strong></li>
+  <li><strong><a href="#3-sign-out">Sign Out</a></strong></li>
+  <li><strong><a href="#4-create">Create</a></strong></li>
+  <li><strong><a href="#5-view">View</a></strong></li>
+</ol>
+
+<hr />
+
+<h2 id="1-get-started">1 Get Started</h2>
+
+<h4 id="install">install</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx install firebase
+</code></pre></div></div>
+
+<h4 id="dependancies">dependancies</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-react-app my-app
+</code></pre></div></div>
+
+<h2 id="2-sign-in">2 Sign In</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">navigate</span> <span class="o">=</span> <span class="nx">useNavigate</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">signInWithGoogle</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">signInWithPopup</span><span class="p">(</span><span class="nx">auth</span><span class="p">,</span> <span class="nx">provider</span><span class="p">);</span>
+  <span class="nx">navigate</span><span class="p">(</span><span class="dl">"</span><span class="s2">/profile</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">GoogleSignIn</span><span class="dl">'</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">signInWithGoogle</span><span class="p">}</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">img</span>
+        <span class="nx">src</span><span class="o">=</span><span class="dl">'</span><span class="s1">https://raw.githubusercontent.com/dependabot-pr/Static-Files/main/Assets/Logo/Google.svg</span><span class="dl">'</span>
+        <span class="nx">alt</span><span class="o">=</span><span class="dl">'</span><span class="s1">google logo</span><span class="dl">'</span>
+        <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">GLogo</span><span class="dl">'</span>
+      <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">GText</span><span class="dl">'</span><span class="o">&gt;</span><span class="nx">Sign</span> <span class="k">in</span> <span class="kd">with</span> <span class="nx">Google</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="3-sign-out">3 Sign Out</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">navigate</span> <span class="o">=</span> <span class="nx">useNavigate</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">signUserOut</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">signOut</span><span class="p">(</span><span class="nx">auth</span><span class="p">);</span>
+  <span class="nx">navigate</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">signUserOut</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">nav-link logOutBTN</span><span class="dl">'</span><span class="o">&gt;</span>
+    <span class="nx">LogOut</span>
+  <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="4-create">4 Create</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserRouter</span><span class="p">,</span> <span class="nx">Routes</span><span class="p">,</span> <span class="nx">Route</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-router-dom</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NavContainer</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../components/navbar/NavContainer</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Error404</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../error/Error404</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Home</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/Home/Home</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomePage</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/User/HomePage</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Login</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/User/Login</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MyAccount</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/User/MyAccount</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">AppRoute</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">NavContainer</span> <span class="o">/&gt;</span>
+
+        <span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">Route</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">index</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Home</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/Login</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Login</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/HomePage</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">HomePage</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/MyAccount</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">MyAccount</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>
+            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/Error404</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Error404</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">*</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Load4</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="sr">/Route</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/Routes</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/BrowserRouter</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+:ET

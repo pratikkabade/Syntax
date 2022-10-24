@@ -1,0 +1,390 @@
+I"“ <p>React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.</p>
+
+<style>
+:root {
+    --accent: #1fd9e3;
+    --this_accent: #e0fdff;
+    --code_accent: #73eaea;
+}
+
+#progressBar {
+    top: 0%;
+    background: linear-gradient(to right, #73ead6, #00aa99);
+}
+</style>
+
+<h1 id="content">Content</h1>
+
+<ol>
+  <li><strong><a href="#1-create">Create</a></strong></li>
+  <li><strong><a href="#2-organizational-structure">Organizational Structure</a></strong></li>
+  <li><strong><a href="#3-router">Router</a></strong></li>
+  <li><strong><a href="#4-css">CSS</a></strong></li>
+  <li><strong><a href="#5-react-props">React Props</a></strong></li>
+  <li><strong><a href="#6-condition">Condition</a></strong></li>
+  <li><strong><a href="#7-array">Array</a></strong></li>
+  <li><strong><a href="#8-usestate">useState</a></strong></li>
+  <li><strong><a href="#9-api">API</a></strong></li>
+  <li><strong><a href="#10-from">From</a></strong></li>
+</ol>
+
+<hr />
+
+<h2 id="1-create">1 Create</h2>
+
+<h4 id="typescript-template">TypeScript Template</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-react-app my-app --template typescript
+</code></pre></div></div>
+
+<h4 id="default-template">Default Template</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-react-app my-app
+</code></pre></div></div>
+
+<h2 id="2-organizational-structure">2 Organizational Structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public
+        index.html
+
+src
+        components
+                navbar
+                    BarComponents
+                    NavContainer
+                Security
+                    GoogleSignIn
+                    GoogleSignOut
+        config
+
+        error
+
+        models
+
+        pages
+
+        routes
+                AppRoute
+        stylesheet
+                App.css
+        App
+        index
+
+.gitignore
+
+package.json
+
+package-lock.json
+
+README.md
+
+tsconfig.json
+</code></pre></div></div>
+
+<h2 id="3-router">3 Router</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserRouter</span><span class="p">,</span> <span class="nx">Routes</span><span class="p">,</span> <span class="nx">Route</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-router-dom</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NavContainer</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../components/navbar/NavContainer</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Error404</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../error/Error404</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Home</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/Home/Home</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomePage</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/User/HomePage</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Login</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/User/Login</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MyAccount</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../pages/User/MyAccount</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">AppRoute</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">BrowserRouter</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">NavContainer</span> <span class="o">/&gt;</span>
+
+        <span class="o">&lt;</span><span class="nx">Routes</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">Route</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">index</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Home</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/Login</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Login</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/HomePage</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">HomePage</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/MyAccount</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">MyAccount</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>
+            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">/Error404</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Error404</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">path</span><span class="o">=</span><span class="dl">'</span><span class="s1">*</span><span class="dl">'</span> <span class="nx">element</span><span class="o">=</span><span class="p">{</span><span class="o">&lt;</span><span class="nx">Load4</span> <span class="o">/&gt;</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>          <span class="o">&lt;</span><span class="sr">/Route</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/Routes</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/BrowserRouter</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="4-css">4 CSS</h2>
+
+<h4 id="inline-styling">Inline Styling</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">h1</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="p">}</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">Style</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<h4 id="javascript-object">JavaScript Object</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">MyHeader</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">mystyle</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">color</span><span class="p">:</span> <span class="dl">"</span><span class="s2">white</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">backgroundColor</span><span class="p">:</span> <span class="dl">"</span><span class="s2">DodgerBlue</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">padding</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10px</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">fontFamily</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Arial</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">h1</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">mystyle</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Hello</span> <span class="nx">Style</span><span class="o">!&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="nx">a</span> <span class="nx">little</span> <span class="nx">style</span><span class="o">!&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="css-stylesheet">CSS Stylesheet</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="dl">"</span><span class="s2">./App.css</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="5-react-props">5 React Props</h2>
+
+<h4 id="add-a-name-attribute-to-the-car-element">Add a <code class="language-plaintext highlighter-rouge">name</code> attribute to the Car element:</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="o">&lt;</span><span class="nx">User</span> <span class="nx">name</span><span class="o">=</span><span class="dl">'</span><span class="s1">Max</span><span class="dl">'</span> <span class="o">/&gt;</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="use-the-name-attribute-in-the-component">Use the <code class="language-plaintext highlighter-rouge">name</code> attribute in the component:</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Car</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">My</span> <span class="nx">name</span> <span class="nx">is</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">!&lt;</span><span class="sr">/h2&gt;</span><span class="err">;
+</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="6-condition">6 Condition</h2>
+
+<h4 id="ternary-if">Ternary if</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">And</span> <span class="nx">I</span> <span class="nx">am</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">old enough</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">not old enough</span><span class="dl">'</span><span class="p">}</span> <span class="nx">to</span> <span class="nx">go</span><span class="p">.</span>
+</code></pre></div></div>
+
+<h2 id="7-array">7 Array</h2>
+
+<h4 id="declare">declare</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Names</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Jake</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">10</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Andrew</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">15</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Phillip</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">20</span> <span class="p">},</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<h4 id="retrieve">Retrieve</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">Names</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+    <span class="p">{</span><span class="nx">Names</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;&gt;</span>
+          <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+            <span class="p">{</span><span class="nx">Name</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span> <span class="nx">is</span> <span class="p">{</span><span class="nx">Name</span><span class="p">.</span><span class="nx">age</span><span class="p">}</span><span class="o">!</span>
+          <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/</span><span class="err">&gt;
+</span>      <span class="p">);</span>
+    <span class="p">})}</span>
+  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="8-usestate">8 useState</h2>
+
+<h4 id="number">NUMBER</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="p">[</span><span class="nx">number</span><span class="p">,</span> <span class="nx">setNumber</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">increaseNum</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setNumber</span><span class="p">(</span><span class="nx">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">number</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">increaseNum</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increase</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="case">CASE</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="p">[</span><span class="nx">text</span><span class="p">,</span> <span class="nx">setText</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">changeText</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setText</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Capital</span> <span class="nx">Letters</span> <span class="nx">here</span> <span class="p">..</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">'</span><span class="s1">text</span><span class="dl">'</span> <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="nx">changeText</span><span class="p">}</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">text</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="visibility">VISIBILITY</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="p">[</span><span class="nx">show</span><span class="p">,</span> <span class="nx">setShow</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">hideShow</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setShow</span><span class="p">(</span><span class="o">!</span><span class="nx">show</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="nx">show</span> <span class="p">?</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">field</span><span class="o">&lt;</span><span class="sr">/p&gt; : &lt;p&gt;&lt;/</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">hideShow</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Hide</span><span class="o">/</span><span class="nx">Show</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="color">COLOR</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="p">[</span><span class="nx">color</span><span class="p">,</span> <span class="nx">setColor</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">"</span><span class="s2">black</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">colorChange</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setColor</span><span class="p">(</span><span class="nx">color</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">black</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span> <span class="na">color</span><span class="p">:</span> <span class="nx">color</span> <span class="p">}</span><span class="o">&gt;</span><span class="nx">Colored</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">colorChange</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Change</span> <span class="nx">Color</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="9-api">9 API</h2>
+
+<h4 id="method-1">METHOD 1</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://catfact.ninja/fact</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="method-2a">METHOD 2A</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">[</span><span class="nx">name</span><span class="p">,</span> <span class="nx">setName</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">predict</span><span class="p">,</span> <span class="nx">setPredict</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fetchData</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">Axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">`https://api.agify.io/?name=</span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setPredict</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="method-2b">METHOD 2B</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="p">[</span><span class="nx">number</span><span class="p">,</span> <span class="nx">setNumber</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">increaseNum</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setNumber</span><span class="p">(</span><span class="nx">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="retrieve-1">Retrieve</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">catFact</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">input</span>
+      <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setName</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+      <span class="p">}}</span>
+    <span class="sr">/</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">fetchData</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Predict</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Name</span><span class="o">-</span> <span class="p">{</span><span class="nx">predict</span><span class="p">?.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Predicted</span> <span class="nx">age</span><span class="o">-</span> <span class="p">{</span><span class="nx">predict</span><span class="p">?.</span><span class="nx">age</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Count</span><span class="o">-</span> <span class="p">{</span><span class="nx">predict</span><span class="p">?.</span><span class="nx">count</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="10-from">10 From</h2>
+
+<h4 id="requirements">Requirements</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useForm</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-hook-form</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">yupResolver</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@hookform/resolvers/yup</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">yup</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">yup</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="schema">schema</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">object</span><span class="p">().</span><span class="nx">shape</span><span class="p">({</span>
+  <span class="na">fullName</span><span class="p">:</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(</span><span class="dl">"</span><span class="s2">fill the name</span><span class="dl">"</span><span class="p">),</span>
+  <span class="na">email</span><span class="p">:</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">email</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+  <span class="na">age</span><span class="p">:</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">number</span><span class="p">().</span><span class="nx">positive</span><span class="p">().</span><span class="nx">integer</span><span class="p">().</span><span class="nx">min</span><span class="p">(</span><span class="mi">18</span><span class="p">).</span><span class="nx">required</span><span class="p">(),</span>
+  <span class="na">password</span><span class="p">:</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">min</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">max</span><span class="p">(</span><span class="mi">20</span><span class="p">).</span><span class="nx">required</span><span class="p">(),</span>
+  <span class="na">confirmPassword</span><span class="p">:</span> <span class="nx">yup</span>
+    <span class="p">.</span><span class="nx">string</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">oneOf</span><span class="p">([</span><span class="nx">yup</span><span class="p">.</span><span class="nx">ref</span><span class="p">(</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">),</span> <span class="kc">null</span><span class="p">])</span>
+    <span class="p">.</span><span class="nx">required</span><span class="p">(),</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="declarations">Declarations</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span>
+  <span class="nx">register</span><span class="p">,</span>
+  <span class="nx">handleSubmit</span><span class="p">,</span>
+  <span class="na">formState</span><span class="p">:</span> <span class="p">{</span> <span class="nx">errors</span> <span class="p">},</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">useForm</span><span class="p">({</span>
+  <span class="na">resolver</span><span class="p">:</span> <span class="nx">yupResolver</span><span class="p">(</span><span class="nx">schema</span><span class="p">),</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="onsubmit">onSubmit</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">onSubmit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="retrieve-2">Retrieve</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">onSubmit</span><span class="p">)}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">'</span><span class="s1">text</span><span class="dl">'</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">'</span><span class="s1">Full Name</span><span class="dl">'</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">fullName</span><span class="dl">"</span><span class="p">)}</span> <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">fullName</span><span class="p">?.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">'</span><span class="s1">email</span><span class="dl">'</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">'</span><span class="s1">Email</span><span class="dl">'</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">)}</span> <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">email</span><span class="p">?.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">'</span><span class="s1">number</span><span class="dl">'</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">'</span><span class="s1">Age</span><span class="dl">'</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">age</span><span class="dl">"</span><span class="p">)}</span> <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">age</span><span class="p">?.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">'</span><span class="s1">Password</span><span class="dl">'</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">'</span><span class="s1">Password</span><span class="dl">'</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">)}</span> <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">password</span><span class="p">?.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">input</span>
+      <span class="nx">type</span><span class="o">=</span><span class="dl">'</span><span class="s1">Password</span><span class="dl">'</span>
+      <span class="nx">placeholder</span><span class="o">=</span><span class="dl">'</span><span class="s1">Confirm Password</span><span class="dl">'</span>
+      <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">confirmPassword</span><span class="dl">"</span><span class="p">)}</span>
+    <span class="sr">/</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">confirmPassword</span><span class="p">?.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="nx">button</span><span class="o">&gt;</span><span class="nx">Submit</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+:ET

@@ -1,0 +1,217 @@
+I"‰W<p>Firebase is a set of hosting services for any type of application. It offers NoSQL and real-time hosting of databases, content, social authentication, and notifications, or services, such as a real-time communication server.</p>
+
+<style>
+:root {
+    --accent: #F5820D;
+    --this_accent: #fff8d2;
+    --code_accent: #e6ea73;
+}
+
+#progressBar {
+    top: 0%;
+    background: linear-gradient(to right, #e6ea73, #a4aa00);
+}
+</style>
+
+<h1 id="content">Content</h1>
+
+<ol>
+  <li><strong><a href="#1-get-started">Get Started</a></strong></li>
+  <li><strong><a href="#2-sign-in">Sign In</a></strong></li>
+  <li><strong><a href="#3-sign-out">Sign Out</a></strong></li>
+  <li><strong><a href="#4-create">Create</a></strong></li>
+  <li><strong><a href="#5-view">View</a></strong></li>
+</ol>
+
+<hr />
+
+<h2 id="1-get-started">1 Get Started</h2>
+
+<h4 id="install">install</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx install firebase
+</code></pre></div></div>
+
+<h4 id="dependancies">dependancies</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-react-app my-app
+</code></pre></div></div>
+
+<h2 id="2-sign-in">2 Sign In</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">navigate</span> <span class="o">=</span> <span class="nx">useNavigate</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">signInWithGoogle</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">signInWithPopup</span><span class="p">(</span><span class="nx">auth</span><span class="p">,</span> <span class="nx">provider</span><span class="p">);</span>
+  <span class="nx">navigate</span><span class="p">(</span><span class="dl">"</span><span class="s2">/profile</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">GoogleSignIn</span><span class="dl">'</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">signInWithGoogle</span><span class="p">}</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">img</span>
+        <span class="nx">src</span><span class="o">=</span><span class="dl">'</span><span class="s1">https://raw.githubusercontent.com/dependabot-pr/Static-Files/main/Assets/Logo/Google.svg</span><span class="dl">'</span>
+        <span class="nx">alt</span><span class="o">=</span><span class="dl">'</span><span class="s1">google logo</span><span class="dl">'</span>
+        <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">GLogo</span><span class="dl">'</span>
+      <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">GText</span><span class="dl">'</span><span class="o">&gt;</span><span class="nx">Sign</span> <span class="k">in</span> <span class="kd">with</span> <span class="nx">Google</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="3-sign-out">3 Sign Out</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">navigate</span> <span class="o">=</span> <span class="nx">useNavigate</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">signUserOut</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">signOut</span><span class="p">(</span><span class="nx">auth</span><span class="p">);</span>
+  <span class="nx">navigate</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">signUserOut</span><span class="p">}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">nav-link logOutBTN</span><span class="dl">'</span><span class="o">&gt;</span>
+    <span class="nx">LogOut</span>
+  <span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="4-create">4 Create</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Form</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">yupResolver</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@hookform/resolvers/yup</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useForm</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-hook-form</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">yup</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">yup</span><span class="dl">"</span><span class="p">;</span>
+<span class="c1">// IMPORT DB</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">addDoc</span><span class="p">,</span> <span class="nx">collection</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">firebase/firestore</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">auth</span><span class="p">,</span> <span class="nx">db</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../../config/firebase</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useAuthState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-firebase-hooks/auth</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">CreatePost</span> <span class="p">{</span>
+  <span class="nl">title</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">description</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">CreatePost</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">object</span><span class="p">().</span><span class="nx">shape</span><span class="p">({</span>
+    <span class="na">title</span><span class="p">:</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(),</span>
+    <span class="na">description</span><span class="p">:</span> <span class="nx">yup</span><span class="p">.</span><span class="nx">string</span><span class="p">().</span><span class="nx">required</span><span class="p">(</span><span class="dl">"</span><span class="s2">fill description</span><span class="dl">"</span><span class="p">),</span>
+  <span class="p">});</span>
+
+  <span class="kd">const</span> <span class="p">{</span>
+    <span class="nx">register</span><span class="p">,</span>
+    <span class="nx">handleSubmit</span><span class="p">,</span>
+    <span class="na">formState</span><span class="p">:</span> <span class="p">{</span> <span class="nx">errors</span> <span class="p">},</span>
+  <span class="p">}</span> <span class="o">=</span> <span class="nx">useForm</span> <span class="o">&lt;</span>
+  <span class="nx">CreatePost</span> <span class="o">&gt;</span>
+  <span class="p">{</span>
+    <span class="na">resolver</span><span class="p">:</span> <span class="nx">yupResolver</span><span class="p">(</span><span class="nx">schema</span><span class="p">),</span>
+  <span class="p">};</span>
+
+  <span class="c1">// GET USER</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">user</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useAuthState</span><span class="p">(</span><span class="nx">auth</span><span class="p">);</span>
+
+  <span class="c1">// DATABASE MODIFICATION</span>
+  <span class="kd">const</span> <span class="nx">postRef</span> <span class="o">=</span> <span class="nx">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span> <span class="dl">"</span><span class="s2">posts</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">onCreatePost</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="na">data</span><span class="p">:</span> <span class="nx">CreatePost</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="nx">addDoc</span><span class="p">(</span><span class="nx">postRef</span><span class="p">,</span> <span class="p">{</span>
+      <span class="c1">// title: data.title,</span>
+      <span class="c1">// description: data.description,</span>
+
+      <span class="c1">// OR</span>
+      <span class="p">...</span><span class="nx">data</span><span class="p">,</span>
+      <span class="na">username</span><span class="p">:</span> <span class="nx">user</span><span class="p">?.</span><span class="nx">displayName</span><span class="p">,</span>
+      <span class="na">email</span><span class="p">:</span> <span class="nx">user</span><span class="p">?.</span><span class="nx">email</span><span class="p">,</span>
+      <span class="na">id</span><span class="p">:</span> <span class="nx">user</span><span class="p">?.</span><span class="nx">uid</span><span class="p">,</span>
+    <span class="p">});</span>
+  <span class="p">};</span>
+
+  <span class="c1">// RETRIEVE</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">onCreatePost</span><span class="p">)}</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">compart</span><span class="dl">'</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">'</span><span class="s1">Title</span><span class="dl">'</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">)}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">title</span><span class="p">?.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">placeholder</span><span class="o">=</span><span class="dl">'</span><span class="s1">Description</span><span class="dl">'</span> <span class="p">{...</span><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">)}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">errors</span><span class="p">.</span><span class="nx">description</span><span class="p">?.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="dl">'</span><span class="s1">submit</span><span class="dl">'</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="5-view">5 View</h2>
+
+<h4 id="viewpost">ViewPost</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">getDocs</span><span class="p">,</span> <span class="nx">collection</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">firebase/firestore</span><span class="dl">"</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">db</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">../../config/firebase</span><span class="dl">"</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ThePost</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./ThePost</span><span class="dl">"</span>
+
+<span class="k">export</span> <span class="kr">interface</span> <span class="nx">Post</span> <span class="p">{</span>
+    <span class="nl">id</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">email</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">title</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">username</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">description</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">ViewPost</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+  <span class="c1">// DATABASE LINK</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">posts</span><span class="p">,</span> <span class="nx">setPosts</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="o">&lt;</span><span class="nx">Post</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">postsRef</span> <span class="o">=</span> <span class="nx">collection</span><span class="p">(</span><span class="nx">db</span><span class="p">,</span> <span class="dl">"</span><span class="s2">posts</span><span class="dl">"</span><span class="p">);</span>
+
+    <span class="kd">const</span> <span class="nx">getPosts</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">getDocs</span><span class="p">(</span><span class="nx">postsRef</span><span class="p">)</span>
+        <span class="nx">setPosts</span><span class="p">(</span>
+            <span class="nx">data</span><span class="p">.</span><span class="nx">docs</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">doc</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="p">...</span><span class="nx">doc</span><span class="p">.</span><span class="nx">data</span><span class="p">(),</span> <span class="na">id</span><span class="p">:</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">id</span> <span class="p">}))</span> <span class="k">as</span> <span class="nx">Post</span><span class="p">[]</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+
+  <span class="c1">// REFRESH</span>
+    <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">getPosts</span><span class="p">();</span>
+    <span class="p">},</span> <span class="p">[])</span>
+
+  <span class="c1">// RETRIEVE</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+            <span class="p">{</span><span class="nx">posts</span><span class="p">?.</span><span class="nx">map</span><span class="p">((</span><span class="nx">post</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+                <span class="o">&lt;</span><span class="nx">ThePost</span> <span class="nx">post</span><span class="o">=</span><span class="p">{</span><span class="nx">post</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="p">))}</span>
+        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="thepost">ThePost</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Post</span> <span class="k">as</span> <span class="nx">iPost</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./ViewPost</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">Props</span> <span class="p">{</span>
+  <span class="nl">post</span><span class="p">:</span> <span class="nx">iPost</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// SEND</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">ThePost</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="nx">Props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">post</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">props</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">'</span><span class="s1">compart</span><span class="dl">'</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+        <span class="na">title</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">post</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/b</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+        <span class="na">description</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">post</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/b</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+        <span class="na">username</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">b</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">post</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/b</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+:ET
