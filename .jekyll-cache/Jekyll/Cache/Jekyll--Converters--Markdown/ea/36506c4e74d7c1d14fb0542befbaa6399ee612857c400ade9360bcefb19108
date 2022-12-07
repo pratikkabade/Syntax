@@ -1,0 +1,331 @@
+I"-†<p>PHP is a general-purpose scripting language geared toward web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994. The PHP reference implementation is now produced by The PHP Group.</p>
+
+<style>
+:root {
+    --hue-color: 226;
+}
+</style>
+
+<h1 id="mysql">MySQL</h1>
+
+<blockquote>
+  <p>Help with SQL commands to interact with a MySQL database</p>
+</blockquote>
+
+<h2 id="mysql-locations">MySQL Locations</h2>
+
+<ul>
+  <li>Mac <em>/usr/local/mysql/bin</em></li>
+  <li>Windows <em>/Program Files/MySQL/MySQL *version*/bin</em></li>
+  <li>Xampp <em>/xampp/mysql/bin</em></li>
+</ul>
+
+<h2 id="add-mysql-to-your-path">Add mysql to your PATH</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Current Session</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span>:/usr/local/mysql/bin
+<span class="c"># Permanantly</span>
+<span class="nb">echo</span> <span class="s1">'export PATH="/usr/local/mysql/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
+</code></pre></div></div>
+
+<p>On Windows - https://www.qualitestgroup.com/resources/knowledge-center/how-to-guide/add-mysql-path-windows/</p>
+
+<h2 id="login">Login</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql <span class="nt">-u</span> root <span class="nt">-p</span>
+</code></pre></div></div>
+
+<h2 id="show-users">Show Users</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">User</span><span class="p">,</span> <span class="k">Host</span> <span class="k">FROM</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="create-user">Create User</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">'someuser'</span><span class="o">@</span><span class="s1">'localhost'</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">'somepassword'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="grant-all-priveleges-on-all-databases">Grant All Priveleges On All Databases</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span> <span class="p">.</span> <span class="o">*</span> <span class="k">TO</span> <span class="s1">'someuser'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="show-grants">Show Grants</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">GRANTS</span> <span class="k">FOR</span> <span class="s1">'someuser'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="remove-grants">Remove Grants</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REVOKE</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span><span class="p">,</span> <span class="k">GRANT</span> <span class="k">OPTION</span> <span class="k">FROM</span> <span class="s1">'someuser'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="delete-user">Delete User</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">USER</span> <span class="s1">'someuser'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="exit">Exit</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">exit</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="show-databases">Show Databases</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">DATABASES</span>
+</code></pre></div></div>
+
+<h2 id="create-database">Create Database</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">acme</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="delete-database">Delete Database</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">DATABASE</span> <span class="n">acme</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="select-database">Select Database</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">acme</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="create-table">Create Table</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">users</span><span class="p">(</span>
+<span class="n">id</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="n">first_name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+   <span class="n">last_name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+   <span class="n">email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+   <span class="n">password</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+   <span class="k">location</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+   <span class="n">dept</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+   <span class="n">is_admin</span> <span class="nb">TINYINT</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+   <span class="n">register_date</span> <span class="nb">DATETIME</span><span class="p">,</span>
+   <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="delete--drop-table">Delete / Drop Table</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">tablename</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="show-tables">Show Tables</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SHOW</span> <span class="n">TABLES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="insert-row--record">Insert Row / Record</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">users</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="k">location</span><span class="p">,</span> <span class="n">dept</span><span class="p">,</span> <span class="n">is_admin</span><span class="p">,</span> <span class="n">register_date</span><span class="p">)</span>
+<span class="k">values</span> <span class="p">(</span><span class="s1">'Brad'</span><span class="p">,</span> <span class="s1">'Traversy'</span><span class="p">,</span> <span class="s1">'brad@gmail.com'</span><span class="p">,</span> <span class="s1">'123456'</span><span class="p">,</span><span class="s1">'Massachusetts'</span><span class="p">,</span> <span class="s1">'development'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">now</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h2 id="insert-multiple-rows">Insert Multiple Rows</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">users</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="k">location</span><span class="p">,</span> <span class="n">dept</span><span class="p">,</span>  <span class="n">is_admin</span><span class="p">,</span> <span class="n">register_date</span><span class="p">)</span>
+<span class="k">values</span>
+<span class="p">(</span><span class="s1">'Fred'</span><span class="p">,</span> <span class="s1">'Smith'</span><span class="p">,</span> <span class="s1">'fred@gmail.com'</span><span class="p">,</span> <span class="s1">'123456'</span><span class="p">,</span> <span class="s1">'New York'</span><span class="p">,</span> <span class="s1">'design'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">now</span><span class="p">()),</span>
+<span class="p">(</span><span class="s1">'Sara'</span><span class="p">,</span> <span class="s1">'Watson'</span><span class="p">,</span> <span class="s1">'sara@gmail.com'</span><span class="p">,</span> <span class="s1">'123456'</span><span class="p">,</span> <span class="s1">'New York'</span><span class="p">,</span> <span class="s1">'design'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">now</span><span class="p">()),</span>
+<span class="p">(</span><span class="s1">'Will'</span><span class="p">,</span> <span class="s1">'Jackson'</span><span class="p">,</span> <span class="s1">'will@yahoo.com'</span><span class="p">,</span> <span class="s1">'123456'</span><span class="p">,</span> <span class="s1">'Rhode Island'</span><span class="p">,</span> <span class="s1">'development'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">now</span><span class="p">()),</span>
+<span class="p">(</span><span class="s1">'Paula'</span><span class="p">,</span> <span class="s1">'Johnson'</span><span class="p">,</span> <span class="s1">'paula@yahoo.com'</span><span class="p">,</span> <span class="s1">'123456'</span><span class="p">,</span> <span class="s1">'Massachusetts'</span><span class="p">,</span> <span class="s1">'sales'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">now</span><span class="p">()),</span>
+<span class="p">(</span><span class="s1">'Tom'</span><span class="p">,</span> <span class="s1">'Spears'</span><span class="p">,</span> <span class="s1">'tom@yahoo.com'</span><span class="p">,</span> <span class="s1">'123456'</span><span class="p">,</span> <span class="s1">'Massachusetts'</span><span class="p">,</span> <span class="s1">'sales'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">now</span><span class="p">());</span>
+</code></pre></div></div>
+
+<h2 id="select">Select</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="where-clause">Where Clause</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="k">location</span><span class="o">=</span><span class="s1">'Massachusetts'</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="k">location</span><span class="o">=</span><span class="s1">'Massachusetts'</span> <span class="k">AND</span> <span class="n">dept</span><span class="o">=</span><span class="s1">'sales'</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">is_admin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">is_admin</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="delete-row">Delete Row</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="update-row">Update Row</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">users</span> <span class="k">SET</span> <span class="n">email</span> <span class="o">=</span> <span class="s1">'freddy@gmail.com'</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="add-new-column">Add New Column</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">users</span> <span class="k">ADD</span> <span class="n">age</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="modify-column">Modify Column</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">users</span> <span class="k">MODIFY</span> <span class="k">COLUMN</span> <span class="n">age</span> <span class="nb">INT</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="order-by-sort">Order By (Sort)</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">last_name</span> <span class="k">ASC</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">last_name</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="concatenate-columns">Concatenate Columns</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'Name'</span><span class="p">,</span> <span class="n">dept</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="select-distinct-rows">Select Distinct Rows</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="k">location</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="between-select-range">Between (Select Range)</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">age</span> <span class="k">BETWEEN</span> <span class="mi">20</span> <span class="k">AND</span> <span class="mi">25</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="like-searching">Like (Searching)</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">dept</span> <span class="k">LIKE</span> <span class="s1">'d%'</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">dept</span> <span class="k">LIKE</span> <span class="s1">'dev%'</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">dept</span> <span class="k">LIKE</span> <span class="s1">'%t'</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">dept</span> <span class="k">LIKE</span> <span class="s1">'%e%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="not-like">Not Like</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">dept</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'d%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="in">IN</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">dept</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'design'</span><span class="p">,</span> <span class="s1">'sales'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="create--remove-index">Create &amp; Remove Index</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">LIndex</span> <span class="k">On</span> <span class="n">users</span><span class="p">(</span><span class="k">location</span><span class="p">);</span>
+<span class="k">DROP</span> <span class="k">INDEX</span> <span class="n">LIndex</span> <span class="k">ON</span> <span class="n">users</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="new-table-with-foreign-key-posts">New Table With Foreign Key (Posts)</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">posts</span><span class="p">(</span>
+<span class="n">id</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="n">user_id</span> <span class="nb">INT</span><span class="p">,</span>
+   <span class="n">title</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+   <span class="n">body</span> <span class="nb">TEXT</span><span class="p">,</span>
+   <span class="n">publish_date</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+   <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+   <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="add-data-to-posts-table">Add Data to Posts Table</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">posts</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+<span class="k">VALUES</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Post One'</span><span class="p">,</span> <span class="s1">'This is post one'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'Post Two'</span><span class="p">,</span> <span class="s1">'This is post two'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Post Three'</span><span class="p">,</span> <span class="s1">'This is post three'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'Post Four'</span><span class="p">,</span> <span class="s1">'This is post four'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'Post Five'</span><span class="p">,</span> <span class="s1">'This is post five'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">'Post Six'</span><span class="p">,</span> <span class="s1">'This is post six'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'Post Seven'</span><span class="p">,</span> <span class="s1">'This is post seven'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Post Eight'</span><span class="p">,</span> <span class="s1">'This is post eight'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'Post Nine'</span><span class="p">,</span> <span class="s1">'This is post none'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">'Post Ten'</span><span class="p">,</span> <span class="s1">'This is post ten'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="inner-join">INNER JOIN</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
+  <span class="n">users</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span>
+  <span class="n">users</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span>
+  <span class="n">posts</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+  <span class="n">posts</span><span class="p">.</span><span class="n">publish_date</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">posts</span>
+<span class="k">ON</span> <span class="n">users</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">posts</span><span class="p">.</span><span class="n">user_id</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">posts</span><span class="p">.</span><span class="n">title</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="new-table-with-2-foriegn-keys">New Table With 2 Foriegn Keys</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">comments</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">post_id</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="n">user_id</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="n">body</span> <span class="nb">TEXT</span><span class="p">,</span>
+    <span class="n">publish_date</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="k">references</span> <span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">post_id</span><span class="p">)</span> <span class="k">references</span> <span class="n">posts</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="add-data-to-comments-table">Add Data to Comments Table</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">comments</span><span class="p">(</span><span class="n">post_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'This is comment one'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'This is comment two'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'This is comment three'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'This is comment four'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'This is comment five'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'This is comment six'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'This is comment six'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'This is comment seven'</span><span class="p">),</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'This is comment seven'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="left-join">Left Join</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
+<span class="n">comments</span><span class="p">.</span><span class="n">body</span><span class="p">,</span>
+<span class="n">posts</span><span class="p">.</span><span class="n">title</span>
+<span class="k">FROM</span> <span class="n">comments</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">posts</span> <span class="k">ON</span> <span class="n">posts</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">comments</span><span class="p">.</span><span class="n">post_id</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">posts</span><span class="p">.</span><span class="n">title</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="join-multiple-tables">Join Multiple Tables</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
+<span class="n">comments</span><span class="p">.</span><span class="n">body</span><span class="p">,</span>
+<span class="n">posts</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+<span class="n">users</span><span class="p">.</span><span class="n">first_name</span><span class="p">,</span>
+<span class="n">users</span><span class="p">.</span><span class="n">last_name</span>
+<span class="k">FROM</span> <span class="n">comments</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">posts</span> <span class="k">on</span> <span class="n">posts</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">comments</span><span class="p">.</span><span class="n">post_id</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">users</span> <span class="k">on</span> <span class="n">users</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">comments</span><span class="p">.</span><span class="n">user_id</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">posts</span><span class="p">.</span><span class="n">title</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="aggregate-functions">Aggregate Functions</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">UCASE</span><span class="p">(</span><span class="n">first_name</span><span class="p">),</span> <span class="n">LCASE</span><span class="p">(</span><span class="n">last_name</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="group-by">Group By</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">age</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">age</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">age</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">age</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">age</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">age</span> <span class="k">HAVING</span> <span class="k">count</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">&gt;=</span><span class="mi">2</span><span class="p">;</span>
+
+</code></pre></div></div>
+:ET

@@ -1,0 +1,771 @@
+I"�o<p>The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript.</p>
+
+<style>
+:root {
+    --hue-color: 22;
+}
+</style>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li><a href="#table-of-contents">Table of Contents</a></li>
+  <li><a href="#minimal-page">Minimal page</a></li>
+  <li><a href="#head">Head</a></li>
+  <li><a href="#text-content">Text content</a>
+    <ul>
+      <li><a href="#headings">Headings</a></li>
+      <li><a href="#paragraphs">Paragraphs</a></li>
+      <li><a href="#formatting">Formatting</a></li>
+      <li><a href="#quotes">Quotes</a></li>
+    </ul>
+  </li>
+  <li><a href="#content">Content</a>
+    <ul>
+      <li><a href="#links">Links</a></li>
+      <li><a href="#images">Images</a></li>
+      <li><a href="#blocks">Blocks</a></li>
+    </ul>
+  </li>
+  <li><a href="#lists">Lists</a>
+    <ul>
+      <li><a href="#unordered-list">Unordered list</a></li>
+      <li><a href="#ordored-list">Ordored list</a></li>
+      <li><a href="#definition-list">Definition list</a></li>
+    </ul>
+  </li>
+  <li><a href="#tables">Tables</a>
+    <ul>
+      <li><a href="#basic-table">Basic table</a></li>
+      <li><a href="#advanced-table">Advanced table</a></li>
+    </ul>
+  </li>
+  <li><a href="#forms">Forms</a></li>
+  <li><a href="#html5-semantic">HTML5 Semantic</a>
+    <ul>
+      <li><a href="#page-layout">Page layout</a></li>
+      <li><a href="#new-elements">New elements</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="minimal-page">Minimal page</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="c">&lt;!-- content here --&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="head">Head</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">"base-url"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"style.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+    <span class="c">/* CSS code */</span>
+  <span class="nt">&lt;/style&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"script.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+    <span class="c1">// Javascript code</span>
+  <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"keywords"</span> <span class="na">content=</span><span class="s">"keywords"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">content=</span><span class="s">"description"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"author"</span> <span class="na">content=</span><span class="s">"name"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"refresh"</span> <span class="na">content=</span><span class="s">"10"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>title</strong></td>
+      <td>page title</td>
+    </tr>
+    <tr>
+      <td><strong>base</strong></td>
+      <td>base url for all links</td>
+    </tr>
+    <tr>
+      <td><strong>link</strong></td>
+      <td>link to external source</td>
+    </tr>
+    <tr>
+      <td><strong>style</strong></td>
+      <td>CSS inside HTML page</td>
+    </tr>
+    <tr>
+      <td><strong>script</strong></td>
+      <td>Javascript code</td>
+    </tr>
+    <tr>
+      <td><strong>meta</strong></td>
+      <td>metadata</td>
+    </tr>
+    <tr>
+      <td><strong>meta</strong> <em>http-equiv</em>=”refresh” <em>content</em>=”10”</td>
+      <td>auto-refresh page in 10s</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="text-content">Text content</h2>
+
+<h3 id="headings">Headings</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Main heading<span class="nt">&lt;/h1&gt;</span>
+<span class="c">&lt;!-- etc --&gt;</span>
+<span class="nt">&lt;h6&gt;</span>Level-6 heading<span class="nt">&lt;/h6&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>h1</strong></td>
+      <td>main heading</td>
+    </tr>
+    <tr>
+      <td><strong>h6</strong></td>
+      <td>least important heading</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="paragraphs">Paragraphs</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
+  Paragraph.<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+  Other line.
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>Other paragraph.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;hr</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;p&gt;</span>See the line above.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>p</strong></td>
+      <td>paragraph</td>
+    </tr>
+    <tr>
+      <td><strong>br</strong></td>
+      <td>line break</td>
+    </tr>
+    <tr>
+      <td><strong>hr</strong></td>
+      <td>horizontal line</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formatting">Formatting</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;em&gt;</span>Formatting<span class="nt">&lt;/em&gt;</span> is <span class="nt">&lt;strong&gt;</span>important<span class="nt">&lt;/strong&gt;</span> ! (a+b)<span class="nt">&lt;sup&gt;</span>2<span class="nt">&lt;/sup&gt;</span> = a<span class="nt">&lt;sup</span>
+  <span class="nt">&gt;</span>2<span class="nt">&lt;/sup</span>
+<span class="nt">&gt;</span>
++ b<span class="nt">&lt;sup&gt;</span>2<span class="nt">&lt;/sup&gt;</span> + 2ab
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>sub</strong></td>
+      <td>subscript</td>
+    </tr>
+    <tr>
+      <td><strong>sup</strong></td>
+      <td>superscript</td>
+    </tr>
+    <tr>
+      <td><strong>em</strong></td>
+      <td>emphasize</td>
+    </tr>
+    <tr>
+      <td><strong>strong</strong></td>
+      <td>important</td>
+    </tr>
+    <tr>
+      <td><strong>mark</strong></td>
+      <td>highlighted</td>
+    </tr>
+    <tr>
+      <td><strong>small</strong></td>
+      <td>small</td>
+    </tr>
+    <tr>
+      <td><strong>i</strong></td>
+      <td>italic</td>
+    </tr>
+    <tr>
+      <td><strong>b</strong></td>
+      <td>bold</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="quotes">Quotes</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;cite&gt;</span>This book<span class="nt">&lt;/cite&gt;</span> was written by this author.
+<span class="nt">&lt;q</span> <span class="na">cite=</span><span class="s">"url"</span><span class="nt">&gt;</span>quotation<span class="nt">&lt;/q&gt;</span>
+<span class="nt">&lt;blockquote</span> <span class="na">cite=</span><span class="s">"url"</span><span class="nt">&gt;</span>
+  Lorem ipsum<span class="nt">&lt;br</span> <span class="nt">/&gt;</span>
+  Lorem ipsum
+<span class="nt">&lt;/blockquote&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>cite</strong></td>
+      <td>title of a work</td>
+    </tr>
+    <tr>
+      <td><strong>q</strong></td>
+      <td>inline quotation</td>
+    </tr>
+    <tr>
+      <td><strong>blockquote</strong></td>
+      <td>quotation</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="content">Content</h2>
+
+<h3 id="links">Links</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"url"</span><span class="nt">&gt;</span>link<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"url"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>open in a new window<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#comments"</span><span class="nt">&gt;</span>watch comments<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"comments"</span><span class="nt">&gt;</span>comments<span class="nt">&lt;/h2&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>a</strong></td>
+      <td>hyperlink</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="images">Images</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"image.png"</span> <span class="na">alt=</span><span class="s">"description"</span> <span class="na">width=</span><span class="s">"300"</span> <span class="na">height=</span><span class="s">"200"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>img</strong></td>
+      <td>image</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="blocks">Blocks</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>block<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;span&gt;</span>inline<span class="nt">&lt;/span&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>div</strong></td>
+      <td>block-level element</td>
+    </tr>
+    <tr>
+      <td><strong>span</strong></td>
+      <td>inline element</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lists">Lists</h2>
+
+<h3 id="unordered-list">Unordered list</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>item<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>item<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>item<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ul</strong></td>
+      <td>unordered list</td>
+    </tr>
+    <tr>
+      <td><strong>li</strong></td>
+      <td>list item</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ordored-list">Ordored list</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>first<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>second<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>third<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ol</strong></td>
+      <td>ordered list</td>
+    </tr>
+    <tr>
+      <td><strong>li</strong></td>
+      <td>list item</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="definition-list">Definition list</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dl&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>term<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>definition<span class="nt">&lt;/dd&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>term<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>definition<span class="nt">&lt;/dd&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>term<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>definition<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;/dl&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>dl</strong></td>
+      <td>definition list</td>
+    </tr>
+    <tr>
+      <td><strong>dt</strong></td>
+      <td>term</td>
+    </tr>
+    <tr>
+      <td><strong>dd</strong></td>
+      <td>definition</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tables">Tables</h2>
+
+<h3 id="basic-table">Basic table</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th&gt;</span>heading 1<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>heading 2<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>line 1, column 1<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>line 1, column 2<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>line 2, column 1<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>line 2, column 2<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>table</strong></td>
+      <td>table</td>
+    </tr>
+    <tr>
+      <td><strong>tr</strong></td>
+      <td>table row</td>
+    </tr>
+    <tr>
+      <td><strong>th</strong></td>
+      <td>table heading</td>
+    </tr>
+    <tr>
+      <td><strong>td</strong></td>
+      <td>table cell</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="advanced-table">Advanced table</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;caption&gt;</span>
+    caption
+  <span class="nt">&lt;/caption&gt;</span>
+  <span class="nt">&lt;colgroup&gt;</span>
+    <span class="nt">&lt;col</span> <span class="na">span=</span><span class="s">"2"</span> <span class="na">style=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;col</span> <span class="na">style=</span><span class="s">"..."</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/colgroup&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>heading 1<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>heading 2<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>heading 3<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tfoot&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>footer 1<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>footer 2<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>footer 3<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tfoot&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>line 1, column 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>line 1, column 2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>line 1, column 3<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>line 2, column 1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>line 2, column 2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>line 2, column 3<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>caption</strong></td>
+      <td>caption</td>
+    </tr>
+    <tr>
+      <td><strong>colgroup</strong></td>
+      <td>defines groups of columns</td>
+    </tr>
+    <tr>
+      <td><strong>col</strong></td>
+      <td>defines column’s properties</td>
+    </tr>
+    <tr>
+      <td><strong>thead</strong></td>
+      <td>groups headings together</td>
+    </tr>
+    <tr>
+      <td><strong>tfoot</strong></td>
+      <td>groups footers together</td>
+    </tr>
+    <tr>
+      <td><strong>tbody</strong></td>
+      <td>groups other rows</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="forms">Forms</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"url"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;fieldset&gt;</span>
+        <span class="nt">&lt;legend&gt;</span>Who are you ?<span class="nt">&lt;/legend&gt;</span>
+        <span class="nt">&lt;label&gt;</span>Login :<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"login"</span> <span class="nt">/&gt;&lt;/label&gt;&lt;br/&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"pswd"</span><span class="nt">&gt;</span>Password :<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">name=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"pswd"</span> <span class="nt">/&gt;&lt;br/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"sex"</span> <span class="na">value=</span><span class="s">"male"</span> <span class="nt">/&gt;</span>Male<span class="nt">&lt;br/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"sex"</span> <span class="na">value=</span><span class="s">"female"</span> <span class="nt">/&gt;</span>Female<span class="nt">&lt;br/&gt;</span>
+    <span class="nt">&lt;/fieldset&gt;</span>
+
+    <span class="nt">&lt;label&gt;</span>Your favorite color : <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"color"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;option&gt;</span>red<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>green<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;</span>blue<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;&lt;/label&gt;</span>
+
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"available"</span> <span class="na">value=</span><span class="s">"monday"</span> <span class="nt">/&gt;</span>Monday<span class="nt">&lt;br/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"available"</span> <span class="na">value=</span><span class="s">"tuesday"</span> <span class="nt">/&gt;</span>Tuesday<span class="nt">&lt;br/&gt;</span>
+
+    <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"comments"</span> <span class="na">rows=</span><span class="s">"10"</span> <span class="na">cols=</span><span class="s">"30"</span> <span class="na">placeholder=</span><span class="s">"Write your comments here"</span><span class="nt">&gt;&lt;textarea/&gt;</span>
+
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Button text"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>form</strong></td>
+      <td>form</td>
+    </tr>
+    <tr>
+      <td><strong>label</strong></td>
+      <td>label for input</td>
+    </tr>
+    <tr>
+      <td><strong>fieldset</strong></td>
+      <td>group inputs together</td>
+    </tr>
+    <tr>
+      <td><strong>legend</strong></td>
+      <td>legend for fieldset</td>
+    </tr>
+    <tr>
+      <td><strong>input</strong> type=”<em>text</em>”</td>
+      <td>text input</td>
+    </tr>
+    <tr>
+      <td><strong>input</strong> type=”<em>password</em>”</td>
+      <td>password input</td>
+    </tr>
+    <tr>
+      <td><strong>input</strong> type=”<em>radio</em>”</td>
+      <td>radio button</td>
+    </tr>
+    <tr>
+      <td><strong>input</strong> type=”<em>checkbox</em>”</td>
+      <td>checkbox</td>
+    </tr>
+    <tr>
+      <td><strong>input</strong> type=”<em>submit</em>”</td>
+      <td>send form</td>
+    </tr>
+    <tr>
+      <td><strong>select</strong></td>
+      <td>drop-down list</td>
+    </tr>
+    <tr>
+      <td><strong>option</strong></td>
+      <td>drop-down list item</td>
+    </tr>
+    <tr>
+      <td><strong>optgroup</strong></td>
+      <td>group of drop-down list items</td>
+    </tr>
+    <tr>
+      <td><strong>datalist</strong></td>
+      <td>autocompletion list</td>
+    </tr>
+    <tr>
+      <td><strong>textarea</strong></td>
+      <td>large text input</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="html5-semantic">HTML5 Semantic</h2>
+
+<h3 id="page-layout">Page layout</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;header&gt;</span>My website<span class="nt">&lt;/header&gt;</span>
+<span class="nt">&lt;nav&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"page1"</span><span class="nt">&gt;</span>Page 1<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"page2"</span><span class="nt">&gt;</span>Page 2<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"page3"</span><span class="nt">&gt;</span>Page 3<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+
+<span class="nt">&lt;section&gt;</span>Hello everybody, Welcome to my website !<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;article&gt;</span>
+  <span class="nt">&lt;header&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Title<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;/header&gt;</span>
+  <span class="nt">&lt;p&gt;</span>My article<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/article&gt;</span>
+
+<span class="nt">&lt;aside&gt;</span>Writen by me<span class="nt">&lt;/aside&gt;</span>
+
+<span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">"comments"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article&gt;</span>Comment 1<span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;article&gt;</span>Comment 2<span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;footer&gt;</span>Copyright notice<span class="nt">&lt;/footer&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>header</strong></td>
+      <td>header of document or section</td>
+    </tr>
+    <tr>
+      <td><strong>footer</strong></td>
+      <td>footer of document or section</td>
+    </tr>
+    <tr>
+      <td><strong>section</strong></td>
+      <td>section</td>
+    </tr>
+    <tr>
+      <td><strong>article</strong></td>
+      <td>article, forum post, blog post, comment</td>
+    </tr>
+    <tr>
+      <td><strong>aside</strong></td>
+      <td>aside content related to surrounding content</td>
+    </tr>
+    <tr>
+      <td><strong>nav</strong></td>
+      <td>navigation links</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="new-elements">New elements</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;figure&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"image.png"</span> <span class="na">alt=</span><span class="s">"figure 1"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;figcaption&gt;</span>Figure 1<span class="nt">&lt;/figcaption&gt;</span>
+<span class="nt">&lt;/figure&gt;</span>
+
+<span class="nt">&lt;details&gt;</span>
+  <span class="nt">&lt;summary&gt;</span>
+    Declaration of M. X on <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2013-12-25"</span><span class="nt">&gt;</span>Christmas day<span class="nt">&lt;/time&gt;</span>
+  <span class="nt">&lt;/summary&gt;</span>
+  <span class="nt">&lt;p&gt;</span>M. X said...<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/details&gt;</span>
+
+Downloading progress : <span class="nt">&lt;progress</span> <span class="na">value=</span><span class="s">"53"</span> <span class="na">max=</span><span class="s">"100"</span><span class="nt">&gt;&lt;/progress&gt;</span> Disk space :
+<span class="nt">&lt;meter</span> <span class="na">value=</span><span class="s">"62"</span> <span class="na">min=</span><span class="s">"10"</span> <span class="na">max=</span><span class="s">"350"</span><span class="nt">&gt;&lt;/meter&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag</th>
+      <th>element</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>figure</strong></td>
+      <td>an illustration</td>
+    </tr>
+    <tr>
+      <td><strong>figcaption</strong></td>
+      <td>caption of a figure element</td>
+    </tr>
+    <tr>
+      <td><strong>details</strong></td>
+      <td>details that can be shown or hidden</td>
+    </tr>
+    <tr>
+      <td><strong>summary</strong></td>
+      <td>visible heading of a details element</td>
+    </tr>
+    <tr>
+      <td><strong>progress</strong></td>
+      <td>progress of a task</td>
+    </tr>
+    <tr>
+      <td><strong>meter</strong></td>
+      <td>display a gauge</td>
+    </tr>
+    <tr>
+      <td><strong>time</strong></td>
+      <td>machine-readable time indication</td>
+    </tr>
+  </tbody>
+</table>
+:ET

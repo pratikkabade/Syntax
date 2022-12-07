@@ -1,3 +1,27 @@
+:root {
+    /*========== Colors ==========*/
+    /* Change favorite color */
+    --hue-color: 196;
+    /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+
+    /* HSL color mode */
+    --accent: hsl(var(--hue-color), 69%, 40%) !important;
+    --accent: hsl(var(--hue-color), 69%, 61%) !important;
+    --accentlight: hsl(var(--hue-color), 92%, 85%) !important;
+    --accentdark: hsl(var(--hue-color), 92%, 15%) !important;
+    --title-color: hsl(var(--hue-color), 8%, 15%) !important;
+    --text-color: hsl(var(--hue-color), 8%, 45%) !important;
+    --accent-bar1: hsl(var(--hue-color), 70%, 90%) !important;
+    --accent-bar2: hsl(var(--hue-color), 70%, 80%) !important;
+    --accent-code: hsl(var(--hue-color), 92%, 95%) !important;
+    --accent-code-border: hsl(var(--hue-color), 57%, 53%) !important;
+}
+
+header {
+    margin: 0 auto 0 auto;
+}
+
+
 header .hdr {
     background-image: var(--skyBackground);
     margin-bottom: 0px;
@@ -33,6 +57,7 @@ header .hdr p {
     margin-right: auto;
     width: 95%;
 
+    color: var(--accentdark);
     margin-bottom: 0px;
     font-weight: 500;
     font-style: italic;

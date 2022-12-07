@@ -1,15 +1,8 @@
-I"“ <p>React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.</p>
+I"þŸ<p>React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.</p>
 
 <style>
 :root {
-    --accent: #1fd9e3;
-    --this_accent: #c7f0f0;
-    --code_accent: #649c9c;
-}
-
-#progressBar {
-    top: 0%;
-    background: linear-gradient(to right, #73ead6, #00aa99);
+    --hue-color: 230;
 }
 </style>
 

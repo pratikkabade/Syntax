@@ -3,8 +3,8 @@
 
 :root {
     --accent: #424242;
-    --this_accent: #f3f3f3;
-    --code_accent: #6d6d6d;
+    --accent-code: #f3f3f3;
+    --accent-code-border: #6d6d6d;
 }
 
 .lefty {
@@ -14,7 +14,7 @@
 
 #progressBar {
     top: 0%;
-    background: linear-gradient(to right, #bbbbbb, #818181);
+    background: linear-gradient(to right, var(--accent-bar1), var(--accent-bar2));
 }
 
 h3 {
@@ -78,7 +78,7 @@ body {
 }
 
 .linK {
-    color: var(--accentdark) !important;
+    color: var(--accent) !important;
     font-weight: 600;
     border: none !important;
 }
@@ -93,8 +93,8 @@ a {
 }
 
 code {
-    border: 1px solid var(--code_accent);
-    background-color: var(--this_accent);
+    border: 1px solid var(--accent-code-border);
+    background-color: var(--accent-code);
     color: var(--accentdark);
     font-size: 20px;
     user-select: text !important;
@@ -104,18 +104,18 @@ code {
 
 
 .homeSideBar {
-    background-color: var(--this_accent) !important;
+    background-color: var(--accent-code) !important;
 }
 
 .item {
-    border: 2px solid var(--this_accent);
+    border: 2px solid var(--accent-code);
     border-radius: 20px;
     transition: 0.2s;
 }
 
 .item header {
     border-radius: 0px 0px 20px 20px;
-    background-color: var(--this_accent);
+    background-color: var(--accent-code);
     color: var(--black);
 }
 

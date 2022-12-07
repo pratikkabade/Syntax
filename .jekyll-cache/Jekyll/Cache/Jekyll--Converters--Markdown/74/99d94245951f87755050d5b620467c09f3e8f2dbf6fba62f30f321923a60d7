@@ -1,0 +1,216 @@
+I"gH<p>PHP is a general-purpose scripting language geared toward web development. It was originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994. The PHP reference implementation is now produced by The PHP Group.</p>
+
+<style>
+:root {
+    --hue-color: 245;
+}
+</style>
+
+<h1 id="content">Content</h1>
+
+<ol>
+  <li><strong><a href="#1-basics">Basics</a></strong></li>
+  <li><strong><a href="#2-array">Array</a></strong></li>
+  <li><strong><a href="#3-class">Class</a></strong></li>
+  <li><strong><a href="#4-string">String</a></strong></li>
+  <li><strong><a href="#5-constants">Constants</a></strong></li>
+  <li><strong><a href="#6-if-else">If Else</a></strong></li>
+  <li><strong><a href="#7-switch">Switch</a></strong></li>
+  <li><strong><a href="#8-loops">Loops</a></strong></li>
+  <li><strong><a href="#9-numbers">Numbers</a></strong></li>
+</ol>
+
+<hr />
+
+<h2 id="1-basics">1 Basics</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$txt</span> <span class="o">=</span> <span class="s2">"PHP"</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">"This is </span><span class="nv">$txt</span><span class="s2">! &lt;br&gt;"</span><span class="p">;</span>
+<span class="nv">$x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nv">$y</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">"Addition is: "</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$x</span> <span class="o">+</span> <span class="nv">$y</span><span class="p">;</span>
+<span class="k">print</span> <span class="s2">"&lt;br&gt;&lt;a&gt;PHP is Fun!&lt;/a&gt;"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="2-array">2 Array</h2>
+
+<h4 id="var_dump">var_dump</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$cars</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">"Volvo"</span><span class="p">,</span><span class="s2">"BMW"</span><span class="p">,</span><span class="s2">"Toyota"</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$cars</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="define">define</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">define</span><span class="p">(</span><span class="s2">"cars"</span><span class="p">,</span> <span class="p">[</span>
+<span class="s2">"Alfa Romeo"</span><span class="p">,</span>
+<span class="s2">"BMW"</span><span class="p">,</span>
+<span class="s2">"Toyota"</span>
+<span class="p">]);</span>
+<span class="k">echo</span> <span class="n">cars</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</code></pre></div></div>
+
+<h2 id="3-class">3 Class</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Car</span> <span class="p">{</span>
+<span class="k">public</span> <span class="nv">$color</span><span class="p">;</span>
+<span class="k">public</span> <span class="nv">$model</span><span class="p">;</span>
+<span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">(</span><span class="nv">$color</span><span class="p">,</span> <span class="nv">$model</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">color</span> <span class="o">=</span> <span class="nv">$color</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">model</span> <span class="o">=</span> <span class="nv">$model</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">public</span> <span class="k">function</span> <span class="n">message</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">"My car is a "</span> <span class="mf">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">color</span> <span class="mf">.</span> <span class="s2">" "</span> <span class="mf">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">model</span> <span class="mf">.</span> <span class="s2">"!"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$myCar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="p">(</span><span class="s2">"black"</span><span class="p">,</span> <span class="s2">"Volvo"</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$myCar</span> <span class="o">-&gt;</span> <span class="nf">message</span><span class="p">();</span>
+<span class="k">echo</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+<span class="nv">$myCar</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="p">(</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"Toyota"</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$myCar</span> <span class="o">-&gt;</span> <span class="nf">message</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="4-string">4 String</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">strrev</span><span class="p">(</span><span class="s2">"Hello world!"</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nb">strpos</span><span class="p">(</span><span class="s2">"Hello world!"</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">"world"</span><span class="p">,</span> <span class="s2">"Dolly"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="5-constants">5 Constants</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">define</span><span class="p">(</span><span class="s2">"GREETING1"</span><span class="p">,</span> <span class="s2">"Welcome to PHP!"</span><span class="p">);</span>
+<span class="k">echo</span> <span class="no">GREETING1</span><span class="p">;</span>
+
+<span class="nb">define</span><span class="p">(</span><span class="s2">"GREETING2"</span><span class="p">,</span> <span class="s2">"Welcome to PHP!"</span><span class="p">);</span>
+<span class="k">function</span> <span class="n">myTest</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="no">GREETING2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">myTest</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="6-if-else">6 If Else</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$t</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">"H"</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span> <span class="o">&lt;</span> <span class="s2">"20"</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="s2">"Have a good day!"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$t</span> <span class="o">=</span> <span class="nb">date</span><span class="p">(</span><span class="s2">"H"</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$t</span> <span class="o">&lt;</span> <span class="s2">"20"</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="s2">"Have a good day!"</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="k">echo</span> <span class="s2">"Have a good night!"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="7-switch">7 Switch</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$favcolor</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
+<span class="k">switch</span> <span class="p">(</span><span class="nv">$favcolor</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">case</span> <span class="s2">"red"</span><span class="o">:</span>
+    <span class="k">echo</span> <span class="s2">"Your favorite color is red!"</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="s2">"blue"</span><span class="o">:</span>
+    <span class="k">echo</span> <span class="s2">"Your favorite color is blue!"</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="s2">"green"</span><span class="o">:</span>
+    <span class="k">echo</span> <span class="s2">"Your favorite color is green!"</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="k">default</span><span class="o">:</span>
+    <span class="k">echo</span> <span class="s2">"Your favorite color is neither red, blue, nor green!"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="8-loops">8. Loops</h2>
+
+<h4 id="while">while</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$x</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="nv">$x</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"The number is: </span><span class="nv">$x</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+    <span class="nv">$x</span><span class="o">+=</span><span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<h4 id="do-while">do while</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$x</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"The number is: </span><span class="nv">$x</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+    <span class="nv">$x</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<h4 id="for">for</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">for</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">70</span><span class="p">;</span> <span class="nv">$x</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$x</span><span class="o">+=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"The number is: </span><span class="nv">$x</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<h4 id="foreach">foreach</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nv">$age</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">"Peter"</span><span class="o">=&gt;</span><span class="s2">"35"</span><span class="p">,</span> <span class="s2">"Ben"</span><span class="o">=&gt;</span><span class="s2">"37"</span><span class="p">,</span> <span class="s2">"Joe"</span><span class="o">=&gt;</span><span class="s2">"43"</span><span class="p">);</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$age</span> <span class="k">as</span> <span class="nv">$x</span> <span class="o">=&gt;</span> <span class="nv">$val</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"</span><span class="nv">$x</span><span class="s2"> = </span><span class="nv">$val</span><span class="s2">&lt;br&gt;"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<h4 id="for-1">for</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">for</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nv">$x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="s2">"The number is: </span><span class="nv">$x</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="cp">?&gt;</span>
+</code></pre></div></div>
+
+<h4 id="for-2">for</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">for</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="nv">$x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nv">$x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="s2">"The number is: </span><span class="nv">$x</span><span class="s2"> &lt;br&gt;"</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="9-numbers">9. Numbers</h2>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$x</span> <span class="o">=</span> <span class="mf">10.365</span><span class="p">;</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">is_float</span><span class="p">(</span><span class="nv">$x</span><span class="p">));</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">));</span>  <span class="c1">// returns -200</span>
+<span class="k">echo</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">));</span>  <span class="c1">// returns 150</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mf">6.7</span><span class="p">));</span>  <span class="c1">// returns 6.7</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span><span class="p">(</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">64</span><span class="p">));</span>  <span class="c1">// returns 8</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">0.60</span><span class="p">));</span>
+<span class="k">echo</span> <span class="s2">"&lt;br&gt;"</span><span class="p">;</span>
+<span class="k">echo</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">0.49</span><span class="p">));</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span><span class="p">(</span><span class="nb">rand</span><span class="p">());</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>
+</code></pre></div></div>
+:ET
