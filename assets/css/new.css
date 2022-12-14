@@ -59,7 +59,6 @@ a {
 body {
     margin-top: 0%;
     scroll-behavior: smooth !important;
-    background-color: black !important;
 }
 
 .shade-two {
@@ -100,7 +99,9 @@ code {
     font-size: 20px;
     user-select: text !important;
     margin: 0px 0px 0px 0px !important;
+    border-radius: 15px !important;
 }
+
 
 .homeSideBar {
     background-color: var(--this_accent) !important;
@@ -171,4 +172,22 @@ article a {
 .blogImage {
     width: 500px;
     height: 300px;
+}
+
+.line-numbers {
+    background-color: #42424200 !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+
+/* change text color selection */
+::-moz-selection {
+    background: greenyellow !important;
+    color: black !important;
+}
+
+::selection {
+    background: greenyellow !important;
+    color: black !important;
 }

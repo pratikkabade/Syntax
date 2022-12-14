@@ -1,15 +1,19 @@
-I"] <p>React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.</p>
+I"¸ <p>React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.</p>
 
 <style>
 :root {
     --accent: #1fd9e3;
-    --this_accent: #e0fdff;
-    --code_accent: #73eaea;
+    --this_accent: #c7f0f0;
+    --code_accent: #649c9c;
 }
 
 #progressBar {
     top: 0%;
     background: linear-gradient(to right, #73ead6, #00aa99);
+}
+
+header .hdr{
+  background-image: 
 }
 </style>
 
@@ -24,7 +28,8 @@
   <li><strong><a href="#6-condition">Condition</a></strong></li>
   <li><strong><a href="#7-array">Array</a></strong></li>
   <li><strong><a href="#8-usestate">useState</a></strong></li>
-  <li><strong><a href="#6-condition">Condition</a></strong></li>
+  <li><strong><a href="#9-api">API</a></strong></li>
+  <li><strong><a href="#10-from">From</a></strong></li>
 </ol>
 
 <hr />
@@ -266,7 +271,7 @@ tsconfig.json
 </span><span class="p">);</span>
 </code></pre></div></div>
 
-<h2 id="api">API</h2>
+<h2 id="9-api">9 API</h2>
 
 <h4 id="method-1">METHOD 1</h4>
 
@@ -318,7 +323,7 @@ tsconfig.json
 </span><span class="p">);</span>
 </code></pre></div></div>
 
-<h2 id="from">From</h2>
+<h2 id="10-from">10 From</h2>
 
 <h4 id="requirements">Requirements</h4>
 

@@ -1,0 +1,39 @@
+header .hdr {
+    background-image: var(--skyBackground);
+    margin-bottom: 0px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+header .hdr h2 {
+    margin: 0 auto 0 auto;
+    padding: 0px;
+    width: 95%;
+
+    font-weight: 600;
+    font-size: calc();
+    color: var(--accentdark);
+    font-size: calc(1em + (25vw - 16px) * 0.5);
+}
+
+header .hdr h3 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+
+    font-weight: 500;
+    color: var(--accentdark);
+
+}
+
+header .hdr p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+
+    margin-bottom: 0px;
+    font-weight: 500;
+    font-style: italic;
+}
